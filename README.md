@@ -73,13 +73,11 @@ MIT – feel free to reuse and modify!
 
 ### Images
 
-- https://unsplash.com/de/@iam_os
-- https://unsplash.com/de/@beccatapert
-- https://unsplash.com/de/@gearfilms
-- https://unsplash.com/de/@hectorbermudez
-- https://unsplash.com/de/@storybyphil
-- https://unsplash.com/de/@studiokvr
-- https://unsplash.com/de/@ysp_19
+@YU5UF
+@ADN4N
+@RA1
+@D1CKY
+@AN6K
 
 ## Version
 
