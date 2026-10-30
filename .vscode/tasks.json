@@ -1,0 +1,33 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Website Server",
+            "type": "process",
+            "command": "python",
+            "args": [
+                "-m",
+                "http.server",
+                "5500",
+                "-b",
+                "127.0.0.1"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "owner": "custom",
+                "pattern": {
+                    "regexp": "^(Serving HTTP on .*)$",
+                    "message": 1
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": "^Serving HTTP on ",
+                    "endsPattern": "^Serving HTTP on "
+                }
+            }
+        }
+    ]
+}
