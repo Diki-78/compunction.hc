@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="wall-shade" x2="0" y2="1">
+      <stop stop-color="#000" stop-opacity=".58"/>
+      <stop offset=".48" stop-color="#000" stop-opacity=".3"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".7"/>
+    </linearGradient>
+    <pattern id="brickwork" width="300" height="150" patternUnits="userSpaceOnUse">
+      <rect width="300" height="150" fill="#202020"/>
+      <path d="M0 2 76 1 80 46 0 47ZM83 1 193 2 195 46 85 46ZM200 2 300 1 300 47 202 46Z
+               M0 52 126 51 129 97 0 98ZM135 52 218 51 220 97 137 97ZM227 51 300 52 300 97 229 97Z
+               M0 103 72 102 74 148 0 149ZM81 102 183 103 185 148 83 148ZM192 103 300 102 300 148 194 148Z"
+            fill="#0b0b0b" stroke="#151515" stroke-width="1"/>
+      <path d="M0 0 77 0M84 0 193 0M201 0 300 0M0 50 126 50M136 50 219 50M228 50 300 50M0 100 73 100M82 100 184 100M193 100 300 100"
+            fill="none" stroke="#303030" stroke-width="2"/>
+      <path d="M1 4 75 3M86 4 191 3M203 4 298 3M2 54 124 53M139 54 216 53M231 54 298 53M2 105 70 104M85 105 181 104M196 105 298 104"
+            fill="none" stroke="#424242" stroke-width="1" opacity=".28"/>
+      <path d="m18 38 15-3m50 6 22-4m29-1 18 2m26-4 27 3M14 87l24-4m43 8 19-4m75-25 13-3m43 27 24 3m-204 48 17-3m62 4 24-5m45 1 17-4m41 5 18-3"
+            fill="none" stroke="#030303" stroke-width="2" opacity=".9"/>
+      <path d="m42 12 9 2-4 8m94 8 6-7 8 1m-118 38 7-5 5 7m115 18 8-7 5 8m-93 37 6-7 8 2m88-2 6-6 7 3"
+            fill="none" stroke="#777" stroke-width="1" opacity=".14"/>
+    </pattern>
+    <pattern id="wall-grit" width="47" height="53" patternUnits="userSpaceOnUse">
+      <circle cx="4" cy="8" r="1.2" fill="#050505"/>
+      <circle cx="18" cy="24" r=".9" fill="#777"/>
+      <circle cx="37" cy="17" r="1.4" fill="#070707"/>
+      <circle cx="29" cy="45" r="1" fill="#888"/>
+      <path d="m8 39 5-2m24 8 4-3M21 5l2 3" stroke="#050505" stroke-width="1.5"/>
+    </pattern>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="31" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+      <feComponentTransfer in="mono">
+        <feFuncA type="table" tableValues="0 .14"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="800" fill="#050505"/>
+  <rect width="1200" height="800" fill="url(#brickwork)"/>
+
+  <g fill="none" stroke="#050505" stroke-linecap="square" stroke-linejoin="miter" opacity=".86">
+    <path d="m161 0-12 68 18 12-27 56 13 13-24 64 16 15-28 69 14 12-22 75"/>
+    <path d="m151 71-45 14-21 27-44 8m111 21 38 6 22 24m-123 34-40-8-28 16m67 72 43-16 29-34m-76 109-35-9-24 19"/>
+    <path d="m877 0 18 58-16 15 31 54-17 13 31 60-19 17 35 67-19 17 34 71"/>
+    <path d="m892 61 39 12 28 29 39 8m-88 30-39 9-27 24m94 26 35-12 34 21m-77 78-36-13-31-31m89 126 41-8 29 22"/>
+  </g>
+  <g fill="none" stroke="#d0d0d0" stroke-linecap="square" stroke-linejoin="miter" opacity=".33">
+    <path d="m160 0-12 68 18 12-27 56 13 13-24 64 16 15-28 69 14 12-22 75"/>
+    <path d="m151 71-45 14-21 27-44 8m111 21 38 6 22 24m-123 34-40-8-28 16m67 72 43-16 29-34"/>
+    <path d="m877 0 18 58-16 15 31 54-17 13 31 60-19 17 35 67-19 17 34 71"/>
+    <path d="m892 61 39 12 28 29 39 8m-88 30-39 9-27 24m94 26 35-12 34 21"/>
+  </g>
+  <g fill="none" stroke="#aaa" stroke-width="2" opacity=".22">
+    <path d="M32 208h67m-46 6h34m267-107h45m-26 7h30m-83 412h48m-29 6h35m552-289h59m-39 6h31m-225 372h48m-29 6h36"/>
+  </g>
+
+  <rect width="1200" height="800" fill="url(#wall-grit)" opacity=".18"/>
+  <rect width="1200" height="800" fill="url(#wall-shade)"/>
+  <rect width="1200" height="800" fill="#fff" filter="url(#grain)" opacity=".28"/>
+</svg>
