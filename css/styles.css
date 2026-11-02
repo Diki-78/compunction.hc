@@ -613,19 +613,6 @@ a {
     transform: translateY(-0.25em);
 }
 
-.members-section .member-list .member img {
-    border: 2px solid rgb(238 238 238 / 0.12);
-    border-radius: 50%;
-    display: block;
-    flex: 0 0 32px;
-    height: 32px !important;
-    margin: 0 auto 0.5em;
-    max-height: 32px !important;
-    max-width: 32px !important;
-    object-fit: cover;
-    width: 32px !important;
-}
-
 .member figcaption {
     align-items: center;
     display: flex;
@@ -727,13 +714,6 @@ a {
         padding: 1em 0.5em;
     }
 
-    .members-section .member-list .member img {
-        flex-basis: 28px;
-        height: 28px !important;
-        max-height: 28px !important;
-        max-width: 28px !important;
-        width: 28px !important;
-    }
 }
 
 @media (max-width: 64em) {
@@ -1064,18 +1044,17 @@ a {
     transform: translateY(-0.2em);
 }
 
-.member-photo-button {
-    background: none;
-    border: 0;
+.member-avatar {
+    align-items: center;
+    background: rgb(255 255 255 / 0.06);
+    border: 2px solid rgb(255 255 255 / 0.24);
     border-radius: 50%;
-    cursor: zoom-in;
-    display: block;
+    color: var(--color-fg);
+    display: flex;
+    height: 5rem;
+    justify-content: center;
     margin: 0 auto 0.9rem;
-    padding: 0;
-}
-
-.member-photo-button:focus-visible {
-    outline-offset: 5px;
+    width: 5rem;
 }
 
 .member::before {
@@ -1085,76 +1064,10 @@ a {
     right: 28%;
 }
 
-.members-section .member-list .member img {
-    border: 2px solid var(--color-fg);
-    filter: grayscale(1) contrast(1.2);
-    height: 5rem !important;
-    max-height: 5rem !important;
-    max-width: 5rem !important;
-    width: 5rem !important;
-    margin: 0;
-}
-
-.member:hover img {
-    filter: grayscale(0.45) contrast(1.2);
-}
-
-.member-photo-dialog {
-    background: #101010;
-    border: 1px solid rgb(from var(--color-accent) r g b / 0.5);
-    box-shadow: 0 1.5rem 5rem rgb(0 0 0 / 0.75);
-    color: var(--color-fg);
-    max-height: 90vh;
-    max-width: min(90vw, 46rem);
-    overflow: visible;
-    padding: 0.75rem;
-    text-align: center;
-    width: fit-content;
-}
-
-.member-photo-dialog::backdrop {
-    background: rgb(0 0 0 / 0.85);
-    backdrop-filter: blur(4px);
-}
-
-.member-photo-full {
-    display: block;
-    max-height: calc(90vh - 4.5rem);
-    max-width: 100%;
-    object-fit: contain;
-    width: auto;
-}
-
-.member-photo-caption {
-    color: var(--color-accent);
-    font-family: var(--font-heading), Georgia, serif;
-    font-size: 1.5rem;
-    line-height: 1.25;
-    padding-top: 0.5rem;
-}
-
-.member-photo-close {
-    align-items: center;
-    background: #101010;
-    border: 1px solid rgb(from var(--color-accent) r g b / 0.5);
-    border-radius: 50%;
-    color: var(--color-fg);
-    cursor: pointer;
-    display: flex;
-    font-family: var(--font-body);
-    font-size: 1.5rem;
-    height: 2.5rem;
-    justify-content: center;
-    line-height: 1;
-    padding: 0;
-    position: absolute;
-    right: -0.75rem;
-    top: -0.75rem;
-    width: 2.5rem;
-}
-
-.member-photo-close:hover {
-    color: var(--color-accent);
+.member-avatar svg {
+    fill: currentColor;
+    height: 2.75rem;
+    width: 2.75rem;
 }
 
 .member-role {
@@ -1423,15 +1336,14 @@ a {
         padding: 1.1rem 0.5rem;
     }
 
-    .members-section .member-list .member img {
-        height: 4rem !important;
-        max-height: 4rem !important;
-        max-width: 4rem !important;
-        width: 4rem !important;
+    .member-avatar {
+        height: 4rem;
+        width: 4rem;
     }
 
-    .member-photo-dialog {
-        max-width: 88vw;
+    .member-avatar svg {
+        height: 2.25rem;
+        width: 2.25rem;
     }
 
     .box-release {
@@ -1575,14 +1487,9 @@ a {
     border-color: var(--color-accent);
 }
 
-:root[data-theme="light"] .member-photo-dialog,
-:root[data-theme="light"] .member-photo-close {
-    background: #f3f0e9;
-    color: var(--color-fg);
-}
-
-:root[data-theme="light"] .member-photo-dialog::backdrop {
-    background: rgb(36 33 29 / 0.55);
+:root[data-theme="light"] .member-avatar {
+    background: rgb(36 33 29 / 0.06);
+    border-color: rgb(36 33 29 / 0.24);
 }
 
 :root[data-theme="light"] .section.is-centered p,

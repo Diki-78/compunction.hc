@@ -96,35 +96,3 @@ const setCopyrightYear = () => {
 };
 
 setCopyrightYear();
-
-/* Member photo viewer */
-const memberPhotoDialog = document.querySelector('.member-photo-dialog');
-
-if (memberPhotoDialog) {
-    const memberPhotoFull = memberPhotoDialog.querySelector('.member-photo-full');
-    const memberPhotoCaption = memberPhotoDialog.querySelector('.member-photo-caption');
-    const memberPhotoClose = memberPhotoDialog.querySelector('.member-photo-close');
-
-    document.querySelectorAll('.member-photo-button').forEach((button) => {
-        button.addEventListener('click', () => {
-            const member = button.closest('.member');
-            const thumbnail = button.querySelector('img');
-            const memberName = member.querySelector('.member-name').textContent.trim();
-
-            memberPhotoFull.src = thumbnail.currentSrc;
-            memberPhotoFull.alt = `Photo of ${memberName}`;
-            memberPhotoCaption.textContent = memberName;
-            memberPhotoDialog.showModal();
-        });
-    });
-
-    memberPhotoClose.addEventListener('click', () => {
-        memberPhotoDialog.close();
-    });
-
-    memberPhotoDialog.addEventListener('click', (event) => {
-        if (event.target === memberPhotoDialog) {
-            memberPhotoDialog.close();
-        }
-    });
-}
