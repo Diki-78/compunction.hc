@@ -204,16 +204,22 @@ video
 /*** Globals ***/
 
 html {
+    overflow-x: clip;
+
     @media ( prefers-reduced-motion: no-preference ) {
         scroll-behavior: smooth;
     }
 }
 
 body {
-    background:
-        repeating-linear-gradient(0deg, rgb(255 255 255 / 0.025) 0 1px, transparent 1px 4px),
-        radial-gradient(ellipse at 50% 25%, rgb(180 180 180 / 0.08), transparent 55%),
-        #050505;
+    background-color: #050505;
+    background-image:
+        linear-gradient(rgb(0 0 0 / 0.18), rgb(0 0 0 / 0.18)),
+        url("../img/Latar%20Belakang%20All.svg?v=site-wallpaper-2");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: auto, cover;
+    background-attachment: scroll, fixed;
     color: var(--color-fg);
     font-family: var(--font-body);
     font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
@@ -314,10 +320,10 @@ a {
 
     & .logo {
         flex-shrink: 0;
-        height: 2em;
+        height: clamp(2rem, 3vw, 2.75rem);
         max-width: none;
         transition: transform var(--transition-duration);
-        width: 2em;
+        width: clamp(2rem, 3vw, 2.75rem);
 
         &:hover {
             transform: translateY(-0.125em);
@@ -326,7 +332,8 @@ a {
 }
 
 .footer {
-    background: var(--color-grey);
+    background: rgb(5 5 5 / 88%);
+    backdrop-filter: blur(0.25em);
     margin-top: 5em;
     padding: 2em 1em;
     text-align: center;
@@ -756,7 +763,7 @@ a {
     border-bottom: 1px solid rgb(255 255 255 / 0.32);
     background:
         repeating-linear-gradient(135deg, rgb(255 255 255 / 0.025) 0 1px, transparent 1px 6px),
-        rgb(5 5 5 / 96%);
+        rgb(5 5 5 / 84%);
     padding-inline: clamp(1rem, 5vw, 4rem);
 }
 
@@ -773,15 +780,14 @@ a {
 }
 
 .hero {
+    box-sizing: border-box;
     isolation: isolate;
     overflow: hidden;
     position: relative;
-    min-height: min(78vh, 52rem);
-    padding: clamp(3rem, 8vw, 7rem) 1.5rem;
-    background:
-        linear-gradient(rgb(0 0 0 / 0.12), rgb(0 0 0 / 0.12)),
-        url("../img/hero-lightning.svg?v=grayscale-brick-wall-3") center / cover,
-        #050505;
+    min-height: calc(100svh - var(--nav-main-height));
+    gap: clamp(1rem, 2.5vh, 1.75rem);
+    padding: clamp(2.5rem, 6vh, 5rem) clamp(1rem, 4vw, 4rem);
+    background: linear-gradient(rgb(0 0 0 / 0.08), rgb(0 0 0 / 0.08));
     border-bottom: 2px solid var(--color-accent);
 }
 
@@ -806,8 +812,9 @@ a {
 
 .hero .wrapper-logo {
     isolation: isolate;
+    max-width: 100%;
     position: relative;
-    width: min(72vw, 29rem);
+    width: min(76vw, 32svh, 26rem);
     filter: grayscale(1) contrast(1.25) drop-shadow(0 1.5rem 2rem rgb(0 0 0 / 0.8));
 }
 
@@ -820,9 +827,11 @@ a {
 }
 
 .hero-copy {
-    margin-top: clamp(1.25rem, 3vw, 2rem);
+    box-sizing: border-box;
+    margin-top: 0;
     max-width: 56rem;
-    padding: 1.25rem 1.5rem;
+    width: 100%;
+    padding: 1rem 1.25rem;
     background:
         repeating-linear-gradient(0deg, rgb(255 255 255 / 0.03) 0 1px, transparent 1px 4px),
         rgb(0 0 0 / 0.72);
@@ -843,7 +852,7 @@ a {
 .hero-tagline {
     margin-top: 0.35rem;
     font-family: var(--font-heading), Georgia, serif;
-    font-size: clamp(2.4rem, 6vw, 5rem);
+    font-size: clamp(2rem, 4vw, 3.8rem);
     line-height: 1.05;
     text-shadow: 3px 3px 0 #000, 5px 5px 0 #555;
     text-transform: uppercase;
@@ -854,7 +863,7 @@ a {
     flex-wrap: wrap;
     gap: 0.75rem;
     justify-content: center;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
 }
 
 .button {
@@ -898,7 +907,7 @@ a {
 .hero .nav-social {
     background: transparent;
     gap: 1.25rem;
-    margin-top: 1.75rem;
+    margin-top: 0;
     padding: 0;
 }
 
@@ -1310,13 +1319,31 @@ a {
 
 @media (max-width: 40em) {
     .hero {
-        min-height: 75vh;
-        padding-inline: 1rem;
+        justify-content: flex-start;
+        min-height: calc(100svh - var(--nav-main-height));
+        padding: clamp(1rem, 3svh, 2rem) 1rem 2rem;
+    }
+
+    .hero .wrapper-logo {
+        width: min(76vw, 40svh, 25rem);
+    }
+
+    .hero-copy {
+        padding: 1rem;
     }
 
     .hero-kicker {
-        font-size: 0.62rem;
-        letter-spacing: 0.16em;
+        font-size: 0.6rem;
+        letter-spacing: 0.12em;
+    }
+
+    .hero-tagline {
+        font-size: clamp(1.9rem, 8vw, 2.5rem);
+    }
+
+    .button {
+        font-size: 0.72rem;
+        padding: 0.7rem 0.75rem;
     }
 
     .section.is-centered {
@@ -1325,6 +1352,13 @@ a {
 
     .member-list {
         gap: 0.75rem;
+    }
+
+    .member-list > .member:last-child {
+        box-sizing: border-box;
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc(50% - 0.375rem);
     }
 
     .member {
@@ -1353,6 +1387,53 @@ a {
 
     .container-audio {
         min-height: 0;
+    }
+}
+
+@media (max-width: 40em) and (max-height: 48rem) {
+    .hero {
+        gap: 0.75rem;
+        padding-block: 1rem;
+    }
+
+    .hero .wrapper-logo {
+        width: min(72vw, 34svh, 22rem);
+    }
+
+    .hero-copy {
+        padding: 0.75rem;
+    }
+
+    .hero-tagline {
+        font-size: clamp(1.75rem, 7.5vw, 2.25rem);
+    }
+
+    .hero-actions {
+        gap: 0.5rem;
+        margin-top: 0.75rem;
+    }
+
+    .button {
+        font-size: 0.68rem;
+        padding: 0.6rem 0.65rem;
+    }
+
+    .hero .nav-social a {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+}
+
+@media (min-width: 40.01em) and (max-width: 56em) {
+    .member-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .member {
+        box-sizing: border-box;
+        flex: 0 1 calc((100% - 2rem) / 3);
     }
 }
 
