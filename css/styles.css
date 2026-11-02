@@ -6,6 +6,7 @@
     --color-bg: #050505;
     --transition-duration: 0.2s;
     --color-fg: #f1f1f1;
+    --color-on-accent: #080808;
 
     --color-grey: #101010;
     --color-grey-alpha-80: rgb(from var(--color-grey) r g b / 0.8);
@@ -14,6 +15,20 @@
     --nav-main-height: calc(var(--nav-main-item-height) + calc(var(--spacing)*4));
     --nav-main-item-height: 2em;
     --nav-main-width: 70vw;
+}
+
+:root[data-theme="light"] {
+    --color-accent: #29251f;
+    --color-bg: #f3f0e9;
+    --color-fg: #24211d;
+    --color-grey: #ded9d0;
+    --color-on-accent: #fff;
+    --color-grey-alpha-80: rgb(from var(--color-grey) r g b / 0.88);
+    color-scheme: light;
+}
+
+:root[data-theme="dark"] {
+    color-scheme: dark;
 }
 
 /*** Reset/Normalize ***/
@@ -212,18 +227,27 @@ html {
 }
 
 body {
-    background-color: #050505;
-    background-image:
-        linear-gradient(rgb(0 0 0 / 0.18), rgb(0 0 0 / 0.18)),
-        url("../img/Latar%20Belakang%20All.svg?v=site-wallpaper-2");
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: auto, cover;
-    background-attachment: scroll, fixed;
+    isolation: isolate;
+    position: relative;
+    background-color: var(--color-bg);
     color: var(--color-fg);
     font-family: var(--font-body);
     font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
     line-height: 1.75;
+}
+
+body::before {
+    background-image:
+        linear-gradient(rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.06)),
+        url("../img/Latar%20Belakang%20All.svg?v=wallpaper-3");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: auto, cover;
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: fixed;
+    z-index: -1;
 }
 
 .logo {
@@ -311,7 +335,6 @@ a {
     gap: 1em;
     justify-content: space-between;
     min-height: var(--nav-main-height);
-    overflow-x: clip;
     padding: var(--spacing) 2em;
     position: sticky;
     top: 0;
@@ -415,6 +438,38 @@ a {
 .wrapper-nav-main {
     align-items: center;
     display: flex;
+    gap: var(--spacing);
+}
+
+.button-theme-toggle {
+    align-items: center;
+    background: transparent;
+    border: 1px solid rgb(from var(--color-fg) r g b / 0.35);
+    border-radius: 50%;
+    color: var(--color-fg);
+    display: flex;
+    flex: 0 0 2.5rem;
+    height: 2.5rem;
+    justify-content: center;
+    padding: 0.55rem;
+    transition: background var(--transition-duration), color var(--transition-duration), border-color var(--transition-duration);
+    width: 2.5rem;
+}
+
+.button-theme-toggle:hover {
+    background: rgb(from var(--color-fg) r g b / 0.1);
+    border-color: var(--color-accent);
+}
+
+.button-theme-toggle svg {
+    fill: currentColor;
+    height: 1.2rem;
+    width: 1.2rem;
+}
+
+:root:not([data-theme="light"]) .icon-theme-dark,
+:root[data-theme="light"] .icon-theme-light {
+    display: none;
 }
 
 .nav-main {
@@ -684,6 +739,7 @@ a {
 @media (max-width: 64em) {
     .header {
         padding-right: 1em;
+        z-index: 20;
     }
 
     .nav-main {
@@ -702,6 +758,7 @@ a {
         top: 0;
         transform: translateX(100%);
         transition: var(--transition-duration);
+        z-index: 2;
 
         & a {
             text-align: right;
@@ -730,7 +787,8 @@ a {
         color: var(--color-fg);
         display: flex;
         padding: var(--spacing);
-        z-index: 10;
+        position: relative;
+        z-index: 3;
 
         &:hover .icon-svg {
             color: var(--color-accent);
@@ -886,7 +944,7 @@ a {
 .button-primary {
     background: var(--color-accent);
     box-shadow: 4px 4px 0 var(--color-fg);
-    color: #080808;
+    color: var(--color-on-accent);
 }
 
 .button-primary:hover {
@@ -1470,6 +1528,77 @@ a {
     fill: currentColor;
     height: 2.25rem;
     width: 2.25rem;
+}
+
+:root[data-theme="light"] body::before {
+    background-image:
+        linear-gradient(rgb(243 240 233 / 0.94), rgb(243 240 233 / 0.94)),
+        url("../img/Latar%20Belakang%20All.svg?v=wallpaper-3");
+    background-blend-mode: normal;
+}
+
+:root[data-theme="light"] .header {
+    border-bottom-color: rgb(36 33 29 / 0.2);
+    background:
+        repeating-linear-gradient(135deg, rgb(36 33 29 / 0.035) 0 1px, transparent 1px 6px),
+        rgb(243 240 233 / 92%);
+}
+
+:root[data-theme="light"] .footer {
+    background: rgb(243 240 233 / 92%);
+}
+
+:root[data-theme="light"] .hero-copy {
+    background:
+        repeating-linear-gradient(0deg, rgb(36 33 29 / 0.035) 0 1px, transparent 0 4px),
+        rgb(250 248 243 / 94%);
+}
+
+:root[data-theme="light"] .hero-tagline {
+    text-shadow: 2px 2px 0 #fff, 4px 4px 0 #b8b1a6;
+}
+
+:root[data-theme="light"] .headline-primary,
+:root[data-theme="light"] .headline-secondary {
+    text-shadow: 2px 2px 0 #fff, 3px 3px 0 #c7c0b5;
+}
+
+:root[data-theme="light"] .member,
+:root[data-theme="light"] .box-release {
+    background:
+        repeating-linear-gradient(0deg, rgb(36 33 29 / 0.035) 0 1px, transparent 1px 5px),
+        linear-gradient(135deg, rgb(255 255 255 / 0.94), rgb(229 224 215 / 0.96));
+    border-color: rgb(36 33 29 / 0.2);
+}
+
+:root[data-theme="light"] .member:hover {
+    border-color: var(--color-accent);
+}
+
+:root[data-theme="light"] .member-photo-dialog,
+:root[data-theme="light"] .member-photo-close {
+    background: #f3f0e9;
+    color: var(--color-fg);
+}
+
+:root[data-theme="light"] .member-photo-dialog::backdrop {
+    background: rgb(36 33 29 / 0.55);
+}
+
+:root[data-theme="light"] .section.is-centered p,
+:root[data-theme="light"] .box-release-info p,
+:root[data-theme="light"] .nav-footer a,
+:root[data-theme="light"] .footer-meta {
+    color: rgb(36 33 29 / 0.78);
+}
+
+:root[data-theme="light"] .hero .nav-social a,
+:root[data-theme="light"] .nav-footer-social a {
+    border-color: rgb(36 33 29 / 0.42);
+}
+
+:root[data-theme="light"] .whatsapp-float {
+    border-color: var(--color-fg);
 }
 
 @media (max-width: 40em) {

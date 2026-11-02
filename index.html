@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Compunction.hc</title>
-  <link rel="stylesheet" href="css/styles.css?v=responsive-layout-9">
+  <script>
+    if (localStorage.getItem('compunction-theme') === 'light') {
+      document.documentElement.dataset.theme = 'light';
+    }
+  </script>
+  <link rel="stylesheet" href="css/styles.css?v=light-dark-theme-3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
@@ -28,6 +33,10 @@
       <img src="img/CompunctionLogo.png" alt="Compunction HC" class="logo" />
     </a>
     <div class="wrapper-nav-main">
+      <button class="button-theme-toggle" type="button" aria-label="Switch to light mode" title="Switch to light mode">
+        <svg class="icon-theme-light" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0-6a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm0 16a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM4.22 4.22a1 1 0 0 1 1.42 0l1.41 1.41a1 1 0 0 1-1.42 1.42L4.22 5.64a1 1 0 0 1 0-1.42Zm12.73 12.73a1 1 0 0 1 1.42 0l1.41 1.41a1 1 0 0 1-1.42 1.42l-1.41-1.41a1 1 0 0 1 0-1.42ZM2 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Zm16 0a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1ZM4.22 19.78a1 1 0 0 1 0-1.42l1.41-1.41a1 1 0 0 1 1.42 1.42l-1.41 1.41a1 1 0 0 1-1.42 0Zm12.73-12.73a1 1 0 0 1 0-1.42l1.41-1.41a1 1 0 0 1 1.42 1.42l-1.41 1.41a1 1 0 0 1-1.42 0Z"/></svg>
+        <svg class="icon-theme-dark" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.7A8.5 8.5 0 0 1 8.3 3.8 8.5 8.5 0 1 0 20.2 15.7Z"/></svg>
+      </button>
       <button class="button-nav-main" type="button" aria-label="Toggle Menu" aria-expanded="false">
         <svg class="icon-svg icon-menu" viewBox="0 0 24 24" height="24" width="24"><path d="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z" /></svg>
         <svg class="icon-svg icon-close" viewBox="0 0 24 24" height="24" width="24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
@@ -237,6 +246,6 @@
     </svg>
   </a>
 
-  <script src="js/scripts.js?v=member-photo-viewer-1"></script>
+  <script src="js/scripts.js?v=light-dark-theme-1"></script>
 </body>
 </html>

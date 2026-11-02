@@ -3,6 +3,26 @@
 const buttonNavMain = document.querySelector('.button-nav-main');
 const wrapperNavMain = document.querySelector('.wrapper-nav-main');
 const navMain = document.querySelector('.nav-main');
+const buttonThemeToggle = document.querySelector('.button-theme-toggle');
+
+const applyTheme = (theme) => {
+    const isLight = theme === 'light';
+    document.documentElement.dataset.theme = isLight ? 'light' : 'dark';
+    buttonThemeToggle.setAttribute('aria-label', `Switch to ${isLight ? 'dark' : 'light'} mode`);
+    buttonThemeToggle.setAttribute('title', `Switch to ${isLight ? 'dark' : 'light'} mode`);
+};
+
+applyTheme(document.documentElement.dataset.theme || 'dark');
+
+buttonThemeToggle.addEventListener('click', () => {
+    const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+    applyTheme(nextTheme);
+    localStorage.setItem('compunction-theme', nextTheme);
+
+    if (wrapperNavMain.classList.contains('is-active')) {
+        toggleNav(false);
+    }
+});
 
 const toggleNav = (active = !wrapperNavMain.classList.contains('is-active')) => {
     wrapperNavMain.classList.toggle('is-active', active);
@@ -25,14 +45,11 @@ navMain.addEventListener('click', (e) => {
 
 // Close menu when clicking outside of it
 document.addEventListener('click', (e) => {
-    if (wrapperNavMain.classList.contains('is-active')) {
-        // Check if the click was inside the nav or on the button
-        const isClickInsideNav = navMain.contains(e.target);
-        const isClickOnButton = buttonNavMain.contains(e.target);
-
-        if (!isClickInsideNav && !isClickOnButton) {
-            toggleNav(false);
-        }
+    if (
+        wrapperNavMain.classList.contains('is-active')
+        && !wrapperNavMain.contains(e.target)
+    ) {
+        toggleNav(false);
     }
 });
 

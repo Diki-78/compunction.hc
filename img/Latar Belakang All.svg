@@ -1,9 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="wall-shade" x2="0" y2="1">
-      <stop stop-color="#000" stop-opacity=".58"/>
-      <stop offset=".48" stop-color="#000" stop-opacity=".3"/>
-      <stop offset="1" stop-color="#000" stop-opacity=".7"/>
+      <stop stop-color="#000" stop-opacity=".3"/>
+      <stop offset=".48" stop-color="#000" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#000" stop-opacity=".42"/>
     </linearGradient>
     <pattern id="brickwork" width="300" height="150" patternUnits="userSpaceOnUse">
       <rect width="300" height="150" fill="#202020"/>
