@@ -4,8 +4,7 @@ const buttonNavMain = document.querySelector('.button-nav-main');
 const wrapperNavMain = document.querySelector('.wrapper-nav-main');
 const navMain = document.querySelector('.nav-main');
 
-const toggleNav = (active) => {
-    // Use the 'active' parameter to force a state, or toggle if it's undefined
+const toggleNav = (active = !wrapperNavMain.classList.contains('is-active')) => {
     wrapperNavMain.classList.toggle('is-active', active);
     buttonNavMain.setAttribute('aria-expanded', wrapperNavMain.classList.contains('is-active'));
 };
