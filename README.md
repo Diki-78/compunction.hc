@@ -1,18 +1,12 @@
-# Heavy Metal Band One-Page Template
+# Landing Page Band dari Compunction.hc 46153 Template
 
-> This is a modern, dark-themed one-page HTML/CSS template tailored for heavy metal bands. 
+> This is a modern, dark-themed one-page HTML/CSS template tailored for your bands. 
 It uses semantic HTML, responsive layouts via CSS Grid and Flexbox, and pure CSS enhancements for animations. 
 Minimal JavaScript included for better UX.
 
 ## Demo
 
-[View the full demo](https://joergsteinhauer.github.io/website-template-heavy-metal-band/)
-
-## Preview
-
-| Mobile view | Desktop view                        |
-|-------------|-------------------------------------|
-| ![preview.png](preview/preview-mobile.png)     | ![preview.png](preview/preview-desktop.png) |
+[View the full demo] https://diki-78.github.io/compunction.hc/
 
 ## Features
 
@@ -79,14 +73,12 @@ MIT – feel free to reuse and modify!
 
 ### Images
 
-- https://unsplash.com/de/@iam_os
-- https://unsplash.com/de/@beccatapert
-- https://unsplash.com/de/@gearfilms
-- https://unsplash.com/de/@hectorbermudez
-- https://unsplash.com/de/@storybyphil
-- https://unsplash.com/de/@studiokvr
-- https://unsplash.com/de/@ysp_19
+@YU5UF
+@ADN4N
+@RA1
+@D1CKY
+@AN6K
 
 ## Version
 
-V1.0.1
+V1.0.3
